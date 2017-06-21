@@ -140,6 +140,6 @@ Also the site [bezumkin.ru][4] uses dynamic titles.
 
 
 [1]: http://rtfm.modx.com/extras/revo/breadcrumb
-[2]: /en/components/pdotools/general-settings
+[2]: /en/01_Components/01_pdoTools/04_General_settings.md
 [3]: http://bezumkin.ru/search?query=pdotools
 [4]: http://bezumkin.ru/
