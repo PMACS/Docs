@@ -89,4 +89,21 @@ To add a TV named  «image», then the call will be as follows:
 
 The chunk **ListRowTpl** will now allow the placeholder `[[+tv.image]]`.
 
+## Additional Information
+When converting chunks from [getResources][1], a common mistake is to use the modifier **strtotime**, to format the date.
+
+Resource dates are stored as a timestamp but are converted to normal date by the **modResource** object. To format the date, the date needs to be translated back into the timestamp and then formatted using syntax like <code>[[*createdon:strtotime:date=`%a %b %e, %Y`]]</code> which turns out to be an unnecessary double conversion.  [See Modx documentation][2]
+
+pdoTools works directly with the database, without creating objects and converting their values, so when a chunk processes a timestamp, one does not need to process it further. You can immediately apply the modifier **date** to the values of:
+
+```
+[[+publishedon:date=`%d.%m.%Y`]]
+text
+[[+createdon:date=`%Y-%m-%d`]]
+```
+
+This applies to using any dates and resources in other snippets of pdoTools.
+
 [0]: http://rtfm.modx.com/revolution/2.x/developing-in-modx/other-development-resources/class-reference/modx/modx.makeurl
+[1]: https://rtfm.modx.com/extras/revo/getresources
+[2]: https://docs.modx.com/revolution/2.x/making-sites-with-modx/commonly-used-template-tags/date-formats
